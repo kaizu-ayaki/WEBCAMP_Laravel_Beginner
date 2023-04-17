@@ -23,6 +23,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware(['auth'])->group(function(){
    Route::get('/task/list',[TaskController::class,'list']);
+   Route::post('/task/register',[TaskController::class,'register']);
    Route::get('/logout', [AuthController::class, 'logout']);
 });
 
