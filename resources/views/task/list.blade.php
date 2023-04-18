@@ -35,7 +35,17 @@
             <th>タスク名
             <th>期限
             <th>重要度
-        <tr>
+
+        @foreach($list as $task)
+            <tr>
+                <td>{{$task->name}}
+                <td>{{$task->period}}
+                <td>{{$task->getPriorityString()}}
+                <td><a href="./detail.html">詳細閲覧</a>
+                <td><a href="./edit.html">編集</a>
+                <td><form action="./top.html"><button>完了</button></form>
+        @endforeach
+        {{--<tr>
              <td>HTML formの学習
             <td>2022/01/01
             <td>普通
@@ -62,7 +72,7 @@
             <td>普通
             <td><a href="./detail.html">詳細閲覧</a>
             <td><a href="./edit.html">編集</a>
-            <td><form action="./top.html"><button>完了</button></form>
+            <td><form action="./top.html"><button>完了</button></form> --}}
         </table>
 
         現在 1 ページ目<br>
