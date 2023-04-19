@@ -16,11 +16,14 @@ class TaskController extends Controller
      */
     public function list()
     {
+        $per_page=15;
+
         $list = TaskModel::where('user_id', Auth::id())
                             ->orderBy('priority', 'DESC')
                             ->orderBy('period')
                             ->orderBy('created_at')
-                            ->get();
+                            ->paginate($per_page);
+                            //->get();
         //$sql=TaskModel::where('user_id',Auth::id())->toSql();
         //echo "<pre>\n"; var_dump($sql,$list); exit;
         return view('task.list',['list'=>$list]);
