@@ -37,9 +37,10 @@ Route::middleware(['auth'])->group(function(){
       Route::delete('/delete/{task_id}',[TaskController::class,'delete'])
                ->whereNumber('task_id')
                ->name('delete');
-         ROute::post('/complete/{task_id}',[TaskController::class,'complete'])
+      Route::post('/complete/{task_id}',[TaskController::class,'complete'])
                ->whereNumber('task_id')
                ->name('complete');
+      Route::get('/csv/download',[TaskController::class,'csvDownload']);
    });
    Route::get('/logout', [AuthController::class, 'logout']);
 });
