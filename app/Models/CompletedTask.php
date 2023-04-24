@@ -14,7 +14,7 @@ class CompletedTask extends Model
         ];
 
     use HasFactory;
-    protected $guarded=['id'];
+    protected $guarded=[];
 
     public function getPriorityString(){
         return $this::PRIORITY_VALUE[$this->priority] ?? '';

@@ -151,7 +151,7 @@ class TaskController extends Controller
         return redirect('/task/list');
     }
 
-    public function complete(Request $request,$task_id)
+    public function complete(Request $request, $task_id)
     {
         /* タスクを完了テーブルに移動させる */
         try {
@@ -160,6 +160,7 @@ class TaskController extends Controller
 
             // task_idのレコードを取得する
             $task = $this->getTaskModel($task_id);
+            //var_dump($task->toArray()); exit;
             if ($task === null) {
                 // task_idが不正なのでトランザクション終了
                 throw new \Exception('');
@@ -182,7 +183,7 @@ class TaskController extends Controller
 
             // トランザクション終了
             DB::commit();
-             // 完了メッセージ出力
+            // 完了メッセージ出力
             $request->session()->flash('front.task_completed_success', true);
         } catch(\Throwable $e) {
 //var_dump($e->getMessage()); exit;

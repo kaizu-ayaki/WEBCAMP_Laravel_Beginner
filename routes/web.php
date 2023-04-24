@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\CompletedTaskController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -24,6 +25,8 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 // タスク管理システム
 Route::get('/', [AuthController::class, 'index'])->name('front.index');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/user/register',[UserController::class,'index']);
+Route::post('/user/register',[UserController::class,'register']);
 
 Route::middleware(['auth'])->group(function(){
    Route::prefix('/task')->group(function(){
