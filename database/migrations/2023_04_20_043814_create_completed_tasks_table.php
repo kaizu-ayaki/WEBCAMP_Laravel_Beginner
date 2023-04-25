@@ -13,7 +13,7 @@ class CreateCompletedTasksTable extends Migration
      */
     public function up()
     {
-         Schema::create('completed_tasks', function (Blueprint $table) {
+        Schema::create('completed_tasks', function (Blueprint $table) {
             $table->unsignedInteger('id');
             $table->string('name', 128)->comment('タスク名');
             $table->date('period')->comment('タスクの期限');
