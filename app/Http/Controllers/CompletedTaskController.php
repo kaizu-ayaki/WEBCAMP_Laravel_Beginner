@@ -14,7 +14,7 @@ class CompletedTaskController extends Controller{
      * @return \Illuminate\View\View
      */
     public function list(){
-        $per_page=10;
+        $per_page=5;
         $list=CompletedTaskModel::where('user_id', Auth::id())->paginate($per_page);
         //echo "<pre>\n";var_dump($list);exit;
         return view('task.completed_list',['list'=>$list]);
